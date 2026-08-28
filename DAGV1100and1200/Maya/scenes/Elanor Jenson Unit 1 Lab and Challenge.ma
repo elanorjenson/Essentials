@@ -1,6 +1,6 @@
 //Maya ASCII 2027 scene
-//Name: Elanor Jenson Unit 1 Lab and Challenge.ma
-//Last modified: Fri, Aug 28, 2026 04:13:56 PM
+//Name: room model 1.ma
+//Last modified: Fri, Aug 28, 2026 04:08:14 PM
 //Codeset: 1252
 requires maya "2027";
 requires "mtoa" "5.6.2";
@@ -11,18 +11,18 @@ fileInfo "product" "Maya 2027";
 fileInfo "version" "2027";
 fileInfo "cutIdentifier" "202607171511-52c21617ee";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 26200)";
-fileInfo "UUID" "A7319F47-48F2-FC39-5D6E-088266C5B1CF";
+fileInfo "UUID" "4A5BF042-41E3-0954-8FEB-0CB14D36F387";
 createNode transform -s -n "persp";
 	rename -uid "E89EA7A3-4354-33A2-99E5-DFA1BAB31C10";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -17.831752578750944 15.029867095237011 31.852142609185453 ;
-	setAttr ".r" -type "double3" -18.600000000000875 -29.600000000000183 -9.1448338959072437e-16 ;
+	setAttr ".t" -type "double3" -14.819182237600664 11.652437002159072 23.051333875398711 ;
+	setAttr ".r" -type "double3" -18.000000000000117 -33.199999999999967 0 ;
 	setAttr ".rpt" -type "double3" 6.2269493234589126e-16 2.0870866659227231e-15 -1.2428866369442575e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "56DDE249-457B-EB71-7BFF-6BB712E9FBF6";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 38.61795018660024;
+	setAttr ".coi" 28.930851013651179;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -1185,4 +1185,4 @@ connectAttr "pCylinderShape3.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "pCylinderShape4.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "pCubeShape3.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "pCubeShape1.iog" ":initialShadingGroup.dsm" -na;
-// End of Elanor Jenson Unit 1 Lab and Challenge.ma
+// End of room model 1.ma
