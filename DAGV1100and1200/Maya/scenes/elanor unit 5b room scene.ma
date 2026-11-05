@@ -1,6 +1,6 @@
 //Maya ASCII 2027 scene
 //Name: elanor unit 5b room scene.ma
-//Last modified: Tue, Nov 03, 2026 08:20:02 PM
+//Last modified: Wed, Nov 04, 2026 07:28:41 PM
 //Codeset: 1252
 file -rdi 1 -ns "b_pillow" -rfn "b_pillowRN" -op "v=0;" -typ "mayaAscii" "C:/GitHub/Essentials/DAGV1100and1200/Maya//assets/5b_pillow.ma";
 file -rdi 1 -ns "b_couch_cushion" -rfn "b_couch_cushionRN" -op "v=0;" -typ "mayaAscii"
@@ -52,8 +52,8 @@ file -r -ns "b_floor" -dr 1 -rfn "b_floorRN" -op "v=0;" -typ "mayaAscii" "C:/Git
 file -r -ns "b_walls" -dr 1 -rfn "b_wallsRN" -op "v=0;" -typ "mayaAscii" "C:/GitHub/Essentials/DAGV1100and1200/Maya//assets/5b_walls.ma";
 requires maya "2027";
 requires "stereoCamera" "10.0";
-requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiStandardSurface"
-		 -nodeType "aiImagerDenoiserOidn" "mtoa" "5.6.2";
+requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiAreaLight"
+		 -nodeType "aiStandardSurface" -nodeType "aiImagerDenoiserOidn" "mtoa" "5.6.2";
 requires -nodeType "UsdDefaultSettings" -dataType "pxrUsdStageData" "mayaUsdPlugin" "0.37.0";
 requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
@@ -62,20 +62,20 @@ fileInfo "product" "Maya 2027";
 fileInfo "version" "2027";
 fileInfo "cutIdentifier" "202607171511-52c21617ee";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 26200)";
-fileInfo "UUID" "A621C0A9-4A6A-9802-80EF-84A7F9E9AAA1";
+fileInfo "UUID" "52C95712-4A7A-69E0-A496-25895D4DC7CF";
 fileInfo "license" "education";
 createNode transform -s -n "persp";
 	rename -uid "087CFE04-470A-66BB-94F0-F59D688A97C6";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -17.53455680344798 8.6972306704652382 -25.349818500608485 ;
-	setAttr ".r" -type "double3" 171.70782396947769 -50.788805809305835 179.99999999999997 ;
+	setAttr ".t" -type "double3" -45.264294307824443 25.015730376581047 -35.685396380485273 ;
+	setAttr ".r" -type "double3" 168.70782396947007 -57.188805809302906 179.99999999999963 ;
 	setAttr ".rp" -type "double3" 1.0658141036401503e-14 -7.1054273576010019e-15 1.4210854715202004e-14 ;
 	setAttr ".rpt" -type "double3" -2.7041095954696187e-14 3.9510260943726439e-15 -1.6829208852989525e-14 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "067488EC-4422-714D-7994-B5A8C124E2B3";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 32.490972083777059;
+	setAttr ".coi" 55.146045907714132;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -7504,22 +7504,45 @@ createNode camera -n "cameraShape1" -p "camera1";
 	setAttr ".man" -type "string" "camera1_mask";
 createNode transform -n "spotLight1";
 	rename -uid "5C03CF5A-4216-B614-BC3A-9DB0AC6E6C2B";
-	setAttr ".t" -type "double3" 0.47021683985777618 42.387099630128262 3.1290094872596761 ;
-	setAttr ".r" -type "double3" -85.800000000000026 -3.9999999999999987 0 ;
-	setAttr ".s" -type "double3" 15.897143073231915 15.897143073231915 15.897143073231915 ;
+	setAttr ".t" -type "double3" -5.4938491349481566 42.387099630128262 3.1290094872596761 ;
+	setAttr ".r" -type "double3" -86.640158684362248 -4.7274117904244068 11.00800608062646 ;
+	setAttr ".s" -type "double3" 16.577175497148229 16.577175497148229 16.577175497148229 ;
 createNode spotLight -n "spotLightShape1" -p "spotLight1";
 	rename -uid "A4A5A207-4954-616F-BB55-1E898284C545";
 	setAttr -k off ".v";
-	setAttr ".cl" -type "float3" 1 0.96700275 0.57099998 ;
-	setAttr ".in" 371.79486083984375;
+	setAttr ".cl" -type "float3" 0.90700001 0.83405316 0.487966 ;
+	setAttr ".in" 8.8617887496948242;
 	setAttr ".col" 42.864769593706718;
 	setAttr ".ca" 45.002864872789345;
 	setAttr ".dro" 3.269230817946104;
 	setAttr ".ai_exposure" 5;
 	setAttr ".ai_radius" 10;
 	setAttr ".ai_lens_radius" 5.1298699378967285;
+createNode transform -n "aiAreaLight1";
+	rename -uid "90814B92-4609-7AE0-249B-9D8D3FCFAE6E";
+	setAttr ".t" -type "double3" -4.2109248849326395 2.7790963876114798 8.5484333071074623 ;
+	setAttr ".s" -type "double3" 1.546667961028356 1.546667961028356 1.546667961028356 ;
+createNode aiAreaLight -n "aiAreaLightShape1" -p "aiAreaLight1";
+	rename -uid "0A83D52B-4EBA-5DB6-7C7E-EB95FBAA1CA9";
+	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
+	setAttr -k off ".v";
+	setAttr ".csh" no;
+	setAttr ".rcsh" no;
+	setAttr ".sc" -type "float3" 1 0.41529822 0.0040000081 ;
+	setAttr ".ai_exposure" 5;
+	setAttr ".ai_translator" -type "string" "quad";
+	setAttr ".aal" -type "attributeAlias" 4 "exposure" "aiExposure" "normalize" "aiNormalize" ;
+createNode transform -n "directionalLight1";
+	rename -uid "118F811E-483D-481E-F4ED-899C5FC0C496";
+	setAttr ".t" -type "double3" 0 14.556460262550047 -24.203791789646314 ;
+	setAttr ".r" -type "double3" -14.999999999999982 179.99999999999994 0 ;
+createNode directionalLight -n "directionalLightShape1" -p "directionalLight1";
+	rename -uid "3AC47C6F-49D5-77DF-3BCF-16B383301E5C";
+	setAttr -k off ".v";
+	setAttr ".cl" -type "float3" 0.010555671 0.0092069991 0.033 ;
+	setAttr ".ai_exposure" 0.2049180269241333;
 createNode fosterParent -n "b_paintingsRNfosterParent1";
-	rename -uid "0B4F15F4-4957-2E01-37B3-7EBCBA5B415B";
+	rename -uid "1EF06071-43DD-23FF-A8F5-AEB64A11DFC6";
 createNode mesh -n "b_paintings:polySurfaceShape3" -p "b_paintingsRNfosterParent1";
 	rename -uid "C2E3A6DE-4CDA-2E73-FC64-F095AC4B63F4";
 	setAttr -k off ".v";
@@ -7854,7 +7877,7 @@ createNode mesh -n "b_paintings:polySurfaceShape3" -p "b_paintingsRNfosterParent
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "EC3112E6-4E2D-F5C4-2DF2-A59573D66ABD";
+	rename -uid "0863B5B4-42DA-1C32-B5AE-65B0F82EDDD1";
 	setAttr -s 22 ".lnk";
 	setAttr -s 22 ".slnk";
 createNode UsdDefaultSettings -n "UsdDefaultRenderSettings";
@@ -7864,16 +7887,16 @@ createNode UsdDefaultSettings -n "UsdDefaultRenderSettings";
 	setAttr ".asp" -type "string" "UsdDefaultRenderSettings,/Render/SceneRenderSettings";
 lockNode -l 1 ;
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "A2939281-4A09-9D08-B3B2-86B174788B27";
+	rename -uid "F8B29DAD-4D9C-7C0A-DEF2-64B3779BDCEB";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "F1BE16AB-4B72-BC16-329B-9F9F611A50C6";
+	rename -uid "EEEF2314-441D-46B1-70F1-D18AA1853452";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "497AAF3F-4DEF-1B95-BE9C-60B67DCAEC97";
+	rename -uid "901E78F5-467E-E6A2-1BCF-518D0A3E87A1";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "6AEF2188-4CAD-E4A7-8A1E-B7A171F65F32";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "85483E0F-42A8-97A8-7424-24B613DCA064";
+	rename -uid "23F491F3-4A5E-8A76-D283-4F8F253DB046";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "7ADEF7F6-436F-02B3-B018-F9AA5C901AD0";
 	setAttr ".g" yes;
@@ -8132,14 +8155,14 @@ createNode reference -n "b_pillowRN";
 		2 "b_pillow:groupParts1" "inputRemoveComponent" " -type \"componentList\" 1 \"f[0:307]\""
 		
 		2 "b_pillow:groupParts1" "groupId" " 105"
-		3 "b_pillow:groupId1.groupId" "|b_pillow:couch_pillow1|b_pillow:couch_pillowShape1.instObjGroups.objectGroups[0].objectGroupId" 
-		""
-		3 "b_pillow:texturedFacets.memberWireframeColor" "|b_pillow:couch_pillow1|b_pillow:couch_pillowShape1.instObjGroups.objectGroups[0].objectGrpColor" 
-		""
 		3 "|b_pillow:couch_pillow1|b_pillow:couch_pillowShape1.instObjGroups.objectGroups[0]" 
 		"b_pillow:texturedFacets.dagSetMembers" "-na"
 		3 "b_pillow:groupId1.message" "b_pillow:texturedFacets.groupNodes" "-na"
 		3 "b_pillow:groupId1.groupId" "b_pillow:groupParts1.groupId" ""
+		3 "b_pillow:groupId1.groupId" "|b_pillow:couch_pillow1|b_pillow:couch_pillowShape1.instObjGroups.objectGroups[0].objectGroupId" 
+		""
+		3 "b_pillow:texturedFacets.memberWireframeColor" "|b_pillow:couch_pillow1|b_pillow:couch_pillowShape1.instObjGroups.objectGroups[0].objectGrpColor" 
+		""
 		5 3 "b_pillowRN" "|b_pillow:couch_pillow1|b_pillow:couch_pillowShape1.instObjGroups" 
 		"b_pillowRN.placeHolderList[1]" "";
 	setAttr ".ptag" -type "string" "";
@@ -8148,6 +8171,7 @@ createNode aiOptions -s -n "defaultArnoldRenderOptions";
 	rename -uid "0DDB11E2-4F05-7B1B-4904-4DA53BEFD34F";
 	addAttr -ci true -sn "ARV_options" -ln "ARV_options" -dt "string";
 	setAttr ".version" -type "string" "5.6.2";
+	setAttr ".ARV_options" -type "string" "Test Resolution=100%;Camera=cameraShape1;Color Management.Gamma=1;Color Management.Exposure=5;Background.BG=BG Color;Background.Color=0 0 0;Background.Image=;Background.Scale=1 1;Background.Offset=0 0;Background.Apply Color Management=1;Foreground.Enable FG=0;Foreground.Image=;Foreground.Scale=1 1;Foreground.Offset=0 0;Foreground.Apply Color Management=1;Interactive.FPS=16";
 createNode aiAOVFilter -s -n "defaultArnoldFilter";
 	rename -uid "3B5F3259-420C-C01E-B0E9-C9B767EF7A4F";
 	setAttr ".ai_translator" -type "string" "gaussian";
@@ -8170,7 +8194,9 @@ createNode reference -n "b_couch_cushionRN";
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"b_couch_cushionRN"
 		"b_couch_cushionRN" 0
-		"b_couch_cushionRN" 7
+		"b_couch_cushionRN" 8
+		2 "|b_couch_cushion:couch_cushion2|b_couch_cushion:couch_cushionShape2" "visibility" 
+		" -k 0 1"
 		2 "|b_couch_cushion:couch_cushion2|b_couch_cushion:couch_cushionShape2" "uvSet[0].uvSetName" 
 		" -type \"string\" \"map1\""
 		3 "|b_couch_cushion:couch_cushion2|b_couch_cushion:couch_cushionShape2.instObjGroups" 
@@ -8219,10 +8245,6 @@ createNode reference -n "b_fireplaceRN";
 		2 "b_fireplace:groupParts1" "inputRemoveComponent" " -type \"componentList\" 1 \"f[0:81]\""
 		
 		2 "b_fireplace:groupParts1" "groupId" " 106"
-		3 "|b_fireplace:fireplace|b_fireplace:fireplaceShape.instObjGroups.objectGroups[0]" 
-		"b_fireplace:texturedFacets4.dagSetMembers" "-na"
-		3 "b_fireplace:groupId1.message" "b_fireplace:texturedFacets4.groupNodes" 
-		"-na"
 		3 "b_fireplace:groupId2.message" ":initialShadingGroup.groupNodes" "-na"
 		3 "b_fireplace:groupId1.groupId" "|b_fireplace:fireplace|b_fireplace:fireplaceShape.instObjGroups.objectGroups[0].objectGroupId" 
 		""
@@ -8235,6 +8257,10 @@ createNode reference -n "b_fireplaceRN";
 		3 "b_fireplace:polyAutoProj4.output" "|b_fireplace:fireplace|b_fireplace:fireplaceShape.inMesh" 
 		""
 		3 "b_fireplace:groupId1.groupId" "b_fireplace:groupParts1.groupId" ""
+		3 "|b_fireplace:fireplace|b_fireplace:fireplaceShape.instObjGroups.objectGroups[0]" 
+		"b_fireplace:texturedFacets4.dagSetMembers" "-na"
+		3 "b_fireplace:groupId1.message" "b_fireplace:texturedFacets4.groupNodes" 
+		"-na"
 		5 3 "b_fireplaceRN" "|b_fireplace:fireplace|b_fireplace:fireplaceShape.instObjGroups.objectGroups[1]" 
 		"b_fireplaceRN.placeHolderList[1]" ""
 		5 4 "b_fireplaceRN" "|b_fireplace:fireplace|b_fireplace:fireplaceShape.instObjGroups.objectGroups[1].objectGroupId" 
@@ -8270,10 +8296,10 @@ createNode reference -n "b_vaseRN";
 		2 "b_vase:groupParts1" "inputRemoveComponent" " -type \"componentList\" 1 \"f[0:159]\""
 		
 		2 "b_vase:groupParts1" "groupId" " 108"
-		3 "b_vase:groupId1.groupId" "b_vase:groupParts1.groupId" ""
 		3 "|b_vase:vase|b_vase:vaseShape.instObjGroups.objectGroups[0]" "b_vase:texturedFacets.dagSetMembers" 
 		"-na"
 		3 "b_vase:groupId1.message" "b_vase:texturedFacets.groupNodes" "-na"
+		3 "b_vase:groupId1.groupId" "b_vase:groupParts1.groupId" ""
 		3 "b_vase:groupId1.groupId" "|b_vase:vase|b_vase:vaseShape.instObjGroups.objectGroups[0].objectGroupId" 
 		""
 		3 "b_vase:texturedFacets.memberWireframeColor" "|b_vase:vase|b_vase:vaseShape.instObjGroups.objectGroups[0].objectGrpColor" 
@@ -8393,9 +8419,9 @@ createNode reference -n "b_table_legsRN";
 		)
 		3 "|b_table_legs:table_leg2|b_table_legs:table_legShape2.instObjGroups" ":initialShadingGroup.dagSetMembers" 
 		"-na"
-		3 "|b_table_legs:table_leg3|b_table_legs:table_legShape3.instObjGroups" ":initialShadingGroup.dagSetMembers" 
-		"-na"
 		3 "|b_table_legs:table_leg4|b_table_legs:table_legShape4.instObjGroups" ":initialShadingGroup.dagSetMembers" 
+		"-na"
+		3 "|b_table_legs:table_leg3|b_table_legs:table_legShape3.instObjGroups" ":initialShadingGroup.dagSetMembers" 
 		"-na"
 		3 "|b_table_legs:table_leg1|b_table_legs:table_legShape1.instObjGroups" ":initialShadingGroup.dagSetMembers" 
 		"-na"
@@ -8446,10 +8472,10 @@ createNode reference -n "b_couchRN";
 		+ "42762822 0.093905508999999998 0.31405818000000002 -0.011864960000000001 -0.16770225999999999 -0.31201169000000001 0.42762822 -0.0082526803000000006 -0.17131912999999999 -0.30889138999999999 0.43003497000000002 -0.284486 0.31958997 0.035299957 0.45421015999999997 -0.29019317 0.32284611000000002 0.031688273000000003 0.45782316000000001 0.013183355000000001 0.45420662000000001 0.093885763999999997 0.20151877000000001 -0.30889138999999999 0.31958997 0.097524880999999994 0.20496613 -0.012582116000000001 0.32284611000000002 0.010318577000000001 0.21284357000000001 0.035345255999999999 0.18604428000000001 -0.019070666 0.31958997 0.0066969394999999996 0.21629477 -0.011882126 0.21286762000000001 -0.17795807 0.20501453 0.016840338999999999 0.1824277 -0.17432499000000001 0.20156080000000001 0.013228655000000001 0.1860407 -0.019070666 0.43574425999999999 0.010247052 0.10060495 0.010262132 0.10712489 -0.012582116000000001 0.42762822 0.0064529777000000002 0.10394758 -0.011865079000000001 0.10059601 -0.17430525999999999 0.3"
 		+ "1410020999999999 -0.0080727934999999997 0.1039598 -0.17794436 0.31065282 -0.01187712 0.10711622 0.0096509457 -0.17070431 -0.29019317 0.43003497000000002 0.096911742999999995 0.31345165000000003 -0.011248230999999999 -0.17071015 -0.29019317 0.31958997 0.013800204 0.45720080000000002 -0.012582116000000001 0.31958997 0.0097144246000000004 0.21571702000000001 -0.011270702 0.21572715000000001 -0.17733114999999999 0.20216727000000001 -0.020021500000000001 0.43574425999999999 0.0094408988999999995 0.10393988999999999 -0.011059403000000001 0.10393548 -0.17731189999999999 0.31349950999999998 -0.0082494019999999994 0.21628559 0.013846159 0.18303472000000001 0.034728466999999999 0.18305009999999999 0.031734824000000002 0.18245631000000001 0.016793787000000001 0.45779458000000001 0.096892431000000001 0.20211947 -0.31201169000000001 0.31958997 -0.31201169000000001 0.32284611000000002 0.034682511999999999 0.45721613999999999 -0.29390252 0.31958997 0.097538589999999994 0.31060441999999999 -0.31201169000000001 0.430034970000"
 		+ "00002")
-		3 "|b_couch:couch_cushion_back|b_couch:couch_cushion_backShape.instObjGroups" 
-		":initialShadingGroup.dagSetMembers" "-na"
 		3 "|b_couch:couch_base|b_couch:couch_baseShape.instObjGroups" ":initialShadingGroup.dagSetMembers" 
 		"-na"
+		3 "|b_couch:couch_cushion_back|b_couch:couch_cushion_backShape.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
 		5 3 "b_couchRN" "|b_couch:couch_base|b_couch:couch_baseShape.instObjGroups" 
 		"b_couchRN.placeHolderList[1]" ":initialShadingGroup.dsm"
 		5 3 "b_couchRN" "|b_couch:couch_cushion_back|b_couch:couch_cushion_backShape.instObjGroups" 
@@ -8554,16 +8580,16 @@ createNode reference -n "b_paintingsRN";
 		2 "b_paintings:polyTweakUV12" "uvtk[0:49]" (" -s 50 -type \"float2\" -0.070242642999999994 0.55739128999999998 -0.58633727000000002 0.091445386000000004 0.39608114999999999 0.040878299999999999 -0.12001343 -0.42506766000000001 0.68990092999999997 -0.49179362999999998 0.52115011 0.11781514 0.54964005999999999 -0.23888296000000001 0.334602 -0.52092457000000003 0.15291273999999999 -0.062539756000000002 -0.31296831000000003 0.45361403 -0.034908056 0.56030612999999996 -0.48389167 0.15514326000000001 0.00073766708000000002 0.1204409 -0.44824499000000001 -0.28472220999999998 0.43072259000000002 0.072153643000000003 0.42735642000000001 0.0062368353999999997 -0.0010890960999999999 0.19046246999999999 0.15677953 -0.79616134999999999 -0.30910301000000001 -0.28000986999999999 0.034558951999999997 0.55132318000000002 -0.334952 -0.20858072999999999 -0.48206486999999998 0.085121632000000003 -0.11034942 0.23169464000000001 0.55288720000000002 0.078042745999999996 0.37437527999999998 -0.48920068 0.51790661000000004 -0.19911229999999999 0.65012610000000004 -0.5235157000000"
 		+ "0003 -0.55938153999999995 -0.17341392999999999 -0.96416181000000001 0.27525419000000001 -0.51512979999999997 0.68036275999999996 -0.15465488999999999 -0.45634301999999999 -0.088738053999999997 -0.45970910999999998 -0.517712 -0.27573931000000002 0.13082289999999999 -0.72482961000000001 -0.27832310999999998 0.48488513 -0.62097871000000004 0.060169994999999997 -0.035601257999999997 0.58866668 0.18755811 -0.031268716000000002 -0.34398961 -0.27804065 -0.23908281000000001 -0.2781266 0.060802460000000003 -0.72669828000000003 0.16580271999999999 -0.72669958999999995 0.69243812999999999 -0.96955729000000002 0.73221146999999998 -0.93783337 0.072163999000000006 -0.24046099000000001 0.10390109 -0.28023350000000002 0.33208555000000001 -0.043144345000000001 0.29231077 -0.074866353999999996 0.99860561000000003 0.11935133000000001 0.96687221999999995 0.15912192999999999"
 		)
-		3 "|b_paintings:painting1plane|b_paintings:painting1planeShape.instObjGroups" 
-		":initialShadingGroup.dagSetMembers" "-na"
-		3 "|b_paintings:painting1|b_paintings:paintingShape1.instObjGroups" ":initialShadingGroup.dagSetMembers" 
-		"-na"
 		3 "b_paintings:polyPlane1.output" "|b_paintings:painting2plane|b_paintings:painting2planeShape.inMesh" 
 		""
 		3 "|b_paintings:painting2plane|b_paintings:painting2planeShape.instObjGroups" 
 		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|b_paintings:painting1|b_paintings:paintingShape1.instObjGroups" ":initialShadingGroup.dagSetMembers" 
+		"-na"
 		3 "|b_paintings:painting2|b_paintings:paintingShape2.instObjGroups" ":initialShadingGroup.dagSetMembers" 
 		"-na"
+		3 "|b_paintings:painting1plane|b_paintings:painting1planeShape.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
 		5 3 "b_paintingsRN" "|b_paintings:painting1|b_paintings:paintingShape1.instObjGroups" 
 		"b_paintingsRN.placeHolderList[1]" ":initialShadingGroup.dsm"
 		5 3 "b_paintingsRN" "|b_paintings:painting2|b_paintings:paintingShape2.instObjGroups" 
@@ -8593,9 +8619,9 @@ createNode reference -n "b_candlesRN";
 		"b_candlesRN"
 		"b_candlesRN" 0
 		"b_candlesRN" 4
-		3 "|b_candles:fireplace_candle2|b_candles:fireplace_candleShape2.instObjGroups" 
-		":initialShadingGroup.dagSetMembers" "-na"
 		3 "|b_candles:fireplace_candle1|b_candles:fireplace_candle1Shape.instObjGroups" 
+		":initialShadingGroup.dagSetMembers" "-na"
+		3 "|b_candles:fireplace_candle2|b_candles:fireplace_candleShape2.instObjGroups" 
 		":initialShadingGroup.dagSetMembers" "-na"
 		5 3 "b_candlesRN" "|b_candles:fireplace_candle1|b_candles:fireplace_candle1Shape.instObjGroups" 
 		"b_candlesRN.placeHolderList[1]" ":initialShadingGroup.dsm"
@@ -8632,15 +8658,15 @@ createNode reference -n "b_stoolRN";
 		)
 		2 "b_stool:polyTweakUV10" "uvtk[0:23]" " -s 24 -type \"float2\" -0.35918707 0.77284050000000004 -0.53970437999999998 0.66215007999999997 -0.041841954000000001 -0.14977973999999999 0.13867536 -0.039089381999999999 -0.54564446 0.88353073999999998 -0.72616177999999998 0.77284050000000004 -0.22829935000000001 -0.039089381999999999 -0.047782034000000001 0.071600914000000002 0.0088887810999999997 0.027805448 -0.16342819 -0.077856541000000001 -0.052737892000000001 -0.25837398 0.11957908 -0.15271187 0.34327184999999999 0.13346743999999999 0.17095488 0.027805388 0.28164524000000002 -0.15271198999999999 0.45396220999999998 -0.047049939999999998 0.50035607999999998 0.10367003 0.32803916999999999 -0.001991923 0.82590156999999997 -0.81392187000000005 0.99821848000000002 -0.70825981999999998 0.20365214000000001 0.98919272000000003 0.031335204999999998 0.88353079999999995 0.52919793000000004 0.071600914000000002 0.70151490000000005 0.17726284"
 		
-		3 "|b_stool:stool_leg1|b_stool:stool_legShape1.instObjGroups" ":initialShadingGroup.dagSetMembers" 
-		"-na"
-		3 "|b_stool:stool_leg2|b_stool:stool_legShape2.instObjGroups" ":initialShadingGroup.dagSetMembers" 
+		3 "|b_stool:stool_top|b_stool:stool_topShape.instObjGroups" ":initialShadingGroup.dagSetMembers" 
 		"-na"
 		3 "|b_stool:stool_leg3|b_stool:stool_legShape3.instObjGroups" ":initialShadingGroup.dagSetMembers" 
 		"-na"
 		3 "|b_stool:stool_leg4|b_stool:stool_legShape4.instObjGroups" ":initialShadingGroup.dagSetMembers" 
 		"-na"
-		3 "|b_stool:stool_top|b_stool:stool_topShape.instObjGroups" ":initialShadingGroup.dagSetMembers" 
+		3 "|b_stool:stool_leg2|b_stool:stool_legShape2.instObjGroups" ":initialShadingGroup.dagSetMembers" 
+		"-na"
+		3 "|b_stool:stool_leg1|b_stool:stool_legShape1.instObjGroups" ":initialShadingGroup.dagSetMembers" 
 		"-na"
 		5 3 "b_stoolRN" "|b_stool:stool_top|b_stool:stool_topShape.instObjGroups" 
 		"b_stoolRN.placeHolderList[1]" ":initialShadingGroup.dsm"
@@ -8736,14 +8762,14 @@ createNode reference -n "b_wallsRN";
 		
 		2 "b_walls:polyTweakUV2" "uvtk[0:23]" " -s 24 -type \"float2\" 0.24113449000000001 1.02862286600000008 -0.68973035000000005 1.02858352700000011 0.24110717000000001 0.15781629 -0.68920678000000002 0.15812894999999999 0.24106246000000001 0.11837926999999999 -0.68913816999999999 0.11875582 0.23619545 -0.77963000999999998 -0.68766552000000003 -0.77133231999999996 0.23530883 -0.81904798999999995 -0.68857758999999996 -0.81070416999999995 -0.72913605000000004 1.02857160600000008 -0.72861242000000004 0.15811673000000001 0.28053886 1.0286331179999999 0.28051274999999998 0.15782762 -0.68971961999999998 0.99211108999999997 0.24114367 0.99214983000000001 0.28054818999999998 0.99216020000000005 0.23944929000000001 -0.71701568000000004 -0.68698983999999996 -0.71416491000000004 -0.72912401000000004 0.99209988000000005 0.21668804 -0.72942667999999999 -0.68027680999999995 -0.72498982999999995 -0.67994021999999998 -0.76107568000000003 0.21658683000000001 -0.76525991999999998"
 		
+		3 "|b_walls:wall1|b_walls:wallShape1.instObjGroups" ":initialShadingGroup.dagSetMembers" 
+		"-na"
 		3 "|b_walls:wall2|b_walls:wallShape2.instObjGroups" ":initialShadingGroup.dagSetMembers" 
 		"-na"
 		3 "b_walls:polyTweakUV2.output" "|b_walls:wall2|b_walls:wallShape2.inMesh" 
 		""
 		3 "b_walls:polyTweakUV2.uvTweak[0]" "|b_walls:wall2|b_walls:wallShape2.uvSet[0].uvSetTweakLocation" 
 		""
-		3 "|b_walls:wall1|b_walls:wallShape1.instObjGroups" ":initialShadingGroup.dagSetMembers" 
-		"-na"
 		5 3 "b_wallsRN" "|b_walls:wall1|b_walls:wallShape1.instObjGroups" "b_wallsRN.placeHolderList[1]" 
 		":initialShadingGroup.dsm"
 		5 4 "b_wallsRN" "|b_walls:wall2|b_walls:wallShape2.inMesh" "b_wallsRN.placeHolderList[2]" 
@@ -11030,6 +11056,7 @@ createNode file -n "dragfaced_brick_stretcher_3543_in_architextures_1";
 	rename -uid "B6EC369C-42FE-A220-35AE-FEBF48B380EF";
 	setAttr ".ftn" -type "string" "C:/GitHub/Essentials/DAGV1100and1200/Maya//sourceimages/dragfaced-brick-stretcher-3543-in-architextures.jpg";
 	setAttr ".cs" -type "string" "sRGB Encoded Rec.709 (sRGB)";
+	setAttr ".ai_ignore_missing_textures" no;
 createNode place2dTexture -n "place2dTexture5";
 	rename -uid "FD75E5A5-4E12-D196-47D0-10BE2DA04A0A";
 	setAttr ".re" -type "float2" 4 4 ;
@@ -11090,7 +11117,7 @@ createNode place2dTexture -n "place2dTexture7";
 	rename -uid "5691E0D0-4ECE-16C6-F83F-E8900FF8B5A2";
 createNode aiStandardSurface -n "vase_texture";
 	rename -uid "03B72ECA-43DE-CC60-06BB-569DE5011B2D";
-	setAttr ".specular_roughness" 0.51569509506225586;
+	setAttr ".specular_roughness" 0.17886178195476532;
 	setAttr ".specular_IOR" 1.5199999809265137;
 	setAttr ".specular_anisotropy" 0.5;
 	setAttr ".subsurface" 0.10000000149011612;
@@ -11417,8 +11444,9 @@ createNode aiStandardSurface -n "fabric_texture";
 	rename -uid "2DB5E83B-4BA2-E4FA-6387-DAAA211433ED";
 	setAttr ".diffuse_roughness" 0.56950670480728149;
 	setAttr ".specular_roughness" 0.77578473091125488;
+	setAttr ".specular_IOR" 1.8442622423171997;
 	setAttr ".subsurface" 0.10762331634759903;
-	setAttr ".subsurface_color" -type "float3" 0.80000001 0.80000001 0.80000001 ;
+	setAttr ".subsurface_color" -type "float3" 0 0 0 ;
 	setAttr ".coat_roughness" 0;
 	setAttr ".coat_IOR" 1.6000000238418579;
 	setAttr ".thin_film_thickness" 0.5;
@@ -11460,6 +11488,7 @@ select -ne :defaultRenderUtilityList1;
 select -ne :defaultRenderingList1;
 	setAttr -s 14 ".r";
 select -ne :lightList1;
+	setAttr -s 3 ".l";
 select -ne :defaultTextureList1;
 	setAttr -s 15 ".tx";
 select -ne :standardSurface1;
@@ -11480,6 +11509,7 @@ select -ne :defaultRenderGlobals;
 select -ne :defaultResolution;
 	setAttr ".pa" 1;
 select -ne :defaultLightSet;
+	setAttr -s 3 ".dsm";
 select -ne :defaultColorMgtGlobals;
 	setAttr ".cfe" yes;
 	setAttr ".cfp" -type "string" "<MAYA_RESOURCES>/OCIO-configs/Maya2022-default/config.ocio";
@@ -12274,6 +12304,8 @@ connectAttr "place2dTexture12.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "place2dTexture13.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "spotLightShape1.ltd" ":lightList1.l" -na;
+connectAttr "aiAreaLightShape1.ltd" ":lightList1.l" -na;
+connectAttr "directionalLightShape1.ltd" ":lightList1.l" -na;
 connectAttr "brick_texture_1.msg" ":defaultTextureList1.tx" -na;
 connectAttr "wood_texture_1.msg" ":defaultTextureList1.tx" -na;
 connectAttr "oak_veneered_mdf_2165_in_architextures_1.msg" ":defaultTextureList1.tx"
@@ -12296,4 +12328,6 @@ connectAttr "groupId11.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId22.msg" ":initialShadingGroup.gn" -na;
 connectAttr "pasted__groupId22.msg" ":initialShadingGroup.gn" -na;
 connectAttr "spotLight1.iog" ":defaultLightSet.dsm" -na;
+connectAttr "aiAreaLight1.iog" ":defaultLightSet.dsm" -na;
+connectAttr "directionalLight1.iog" ":defaultLightSet.dsm" -na;
 // End of elanor unit 5b room scene.ma
